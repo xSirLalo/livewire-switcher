@@ -18,7 +18,9 @@ export function activate(context: vscode.ExtensionContext) {
       let livewireClassPath = (await fs.existsSync(vscode.workspace.workspaceFolders[0].uri.fsPath + '/app/Http/Livewire')) ? 'app/Http/Livewire/' : 'app/Livewire/';
 
       if (vscode.workspace.asRelativePath(vscode.window.activeTextEditor?.document.fileName).startsWith('resources/views/livewire/')) {
-        const relativePath = vscode.window.activeTextEditor?.document.fileName.split('resources/views/livewire/')[1];
+        let changeDirectionBarWindows = vscode.window.activeTextEditor?.document.fileName.replace(/\\/g, '/');
+        const relativePath = changeDirectionBarWindows.split('resources/views/livewire/')[1];
+        // vscode.window.showInformationMessage(`workspace is resources/views/livewire/${relativePath}`);
         let file = relativePath
           .replace('.blade.php', '')
           .split('/')
@@ -34,7 +36,9 @@ export function activate(context: vscode.ExtensionContext) {
         const document = await vscode.workspace.openTextDocument(vscode.workspace.workspaceFolders[0].uri.path + '/' + livewireClassPath + file);
         await vscode.window.showTextDocument(document);
       } else if (vscode.workspace.asRelativePath(vscode.window.activeTextEditor?.document.fileName).startsWith(livewireClassPath)) {
-        const relativePath = vscode.window.activeTextEditor?.document.fileName.split(livewireClassPath)[1];
+        let changeDirectionBarWindows = vscode.window.activeTextEditor?.document.fileName.replace(/\\/g, '/');
+        const relativePath = changeDirectionBarWindows.split(livewireClassPath)[1];
+        // vscode.window.showInformationMessage(`workspace is ${livewireClassPath}${relativePath}`);
         let file = relativePath
           .split('/')
           .map((d, index, array) => {

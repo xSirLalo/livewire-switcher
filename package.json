@@ -1,15 +1,15 @@
 {
-    "name": "livewire-switcher",
-    "displayName": "Livewire Switcher",
-    "description": "Switch between component class and view files for Laravel Livewire",
-    "version": "0.1.1",
-    "publisher": "bebo925",
+    "name": "livewire-switcher-windows",
+    "displayName": "Livewire Switcher Windows",
+    "description": "Switch between component class and view files for Laravel Livewire in Windows 10+",
+    "version": "0.1.2",
+    "publisher": "xSirLalo",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/bebo925/laravel-switcher.git"
+        "url": "git+https://github.com/xSirLalo/livewire-switcher.git"
     },
     "engines": {
-        "vscode": "^1.64.0"
+        "vscode": "^1.75.0"
     },
     "categories": [
         "Keymaps",
